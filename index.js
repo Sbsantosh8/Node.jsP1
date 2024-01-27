@@ -1,44 +1,122 @@
-// // NPM module
+// // // NPM module
 
 // const clc = require('cli-color');
 
-// // Example: Print colored text to the console
-// console.log(clc.green('This is green text!'));
-// console.log(clc.red.bold('This is bold red text!'));
+// // // Example: Print colored text to the console
+// // console.log(clc.green('This is green text!'));
+// // console.log(clc.red.bold('This is bold red text!'));
 
 
-// // Local module
+// // // Local module
 
-// const register1 = require('./auth');
-// register1("Santosh");
+// // const register1 = require('./auth');
+// // register1("Santosh");
 
-// const login1 = require('./auth');
+// // const login1 = require('./auth');
 
-// login1.register1("Santosh")
-// login1.login("Santya","tumDono ki maki choot")
+// // login1.register1("Santosh")
+// // login1.login("Santya","tumDono ki maki choot")
 
 
 
-// Core Module
+// // Core Module
 
-// Dirname
+// // Dirname
 const path = require('path');
 
-console.log('Folder name: ',path.dirname(__filename));
+// console.log('Folder name: ',path.dirname(__filename));
 
 
-// Filename
+// // Filename
 
-console.log('File name: ',path.basename(__filename));
+// console.log('File name: ',path.basename(__filename));
 
-// Extension
+// // Extension
 
-console.log('Extension: ',path.extname(__filename))
+// console.log('Extension: ',path.extname(__filename))
 
-// Parse
+// // Parse
 
-console.log('Parse :', path.parse(__filename))
+// console.log('Parse :', path.parse(__filename))
 
-// Join
+// // Join
 
-console.log('Join: ',path.join(__dirname,'order','app.js'))
+// console.log('Join: ',path.join(__dirname,'order','app.js'))
+
+
+// // File System
+// // imorting a file system module
+const fs = require('fs')
+
+// // make a directory
+
+// fs.mkdir(path.join(__dirname,'/test'),(err)=>{
+//     if(err){
+//         console.log(clc.red('Something went wrong...'));
+//         console.log(err);
+//         return 
+//     }
+
+//     console.log(clc.red('Folder created..'));
+// })
+
+
+// Write a file
+
+// fs.writeFile(path.join(__dirname,'test','test.txt'),'Hello Node\n',(err)=>{
+//     if(err){
+//         throw err
+//     }
+//     // suppose if you want to add more data in that test.txt file
+
+// fs.appendFile(path.join(__dirname,'test','test.txt'),'More data',(err)=>{
+//     if(err){
+//         throw err
+//     }
+
+//     console.log('Data added..')
+// })
+
+
+//     console.log('File created...')
+// })
+
+
+
+
+
+
+// Read a File
+
+fs.readFile(path.join(__dirname,'test','test.txt'),(err,data)=>{
+    if(err){
+        throw err
+    }
+
+
+    // to print the data Technique 1
+
+    const content = Buffer.from(data)
+    console.log(content.toString())
+
+
+
+    
+})
+
+
+fs.readFile(path.join(__dirname,'test','test.txt'),'utf-8',(err,data)=>{
+    if(err){
+        throw err
+    }
+
+
+    // to print the data Technique 2  , adding a parameter (utf-8) 
+     
+    console.log(data)
+    
+
+
+
+    
+})
