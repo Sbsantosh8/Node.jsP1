@@ -1,3 +1,5 @@
+// NPM module
+
 const clc = require('cli-color');
 
 // Example: Print colored text to the console
@@ -15,5 +17,11 @@ const login1 = require('./auth');
 
 login1.register("Santosh")
 login1.login("Santya","tumDono ki maki choot")
-// login1(
-// 
+
+
+
+// Core Module
+
+const path = require('path');
+
+console.log('Folder name: ',path.dirname(__filename));
