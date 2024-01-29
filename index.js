@@ -114,9 +114,62 @@ fs.readFile(path.join(__dirname,'test','test.txt'),'utf-8',(err,data)=>{
     // to print the data Technique 2  , adding a parameter (utf-8) 
      
     console.log(data)
-    
-
-
-
-    
+   
+   
 })
+
+
+// OS module
+
+// const os = require('os')
+
+// console.log("os type :",os.type());
+
+// console.log("os platform :",os.platform())
+
+// console.log("Cpu architecture : ",os.arch())
+
+// console.log("Cpu details : ",os.cpus())
+
+// console.log("Free memory : ",os.freemem())
+
+// console.log("Total memory : ",os.totalmem())
+
+// console.log("Free memory : ",os.freemem())
+
+// console.log("Uptime : ",os.uptime())
+
+
+
+// Events Module
+
+const Emitter = require("events");
+
+const myEmitter = new Emitter();
+
+myEmitter.on('somename',(data)=>{
+    console.log(data);
+})
+
+myEmitter.emit('somename',{
+    name : 'Sandy'
+})
+
+
+class Auth extends Emitter {
+    register(username){
+
+        console.log('Register successfully...')
+        this.emit('registered',username)
+    }
+}
+
+const auth = new Auth();
+
+// Listen
+
+auth.on('registered',(data)=>{
+    console.log(`Sending email to ${data}...`)
+})
+
+auth.register("Mahesh")
